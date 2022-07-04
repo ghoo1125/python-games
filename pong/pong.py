@@ -99,7 +99,6 @@ while True:
         ball.sety(290)
         ball.dy *= -1
         os.system("afplay bounce.wav&")
-    
     elif ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
@@ -111,21 +110,19 @@ while True:
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
         ball.goto(0, 0)
-        ball.dx *= -1
-
+        ball.dx = -2
     elif ball.xcor() < -350:
         score_b += 1
         pen.clear()
         pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
         ball.goto(0, 0)
-        ball.dx *= -1
+        ball.dx = 2
 
     # Paddle and ball collisions
     if ball.xcor() < -340 and ball.ycor() < paddle_a.ycor() + 50 and ball.ycor() > paddle_a.ycor() - 50:
-        ball.dx *= -1 
+        ball.dx *= -1.4
         os.system("afplay bounce.wav&")
-    
     elif ball.xcor() > 340 and ball.ycor() < paddle_b.ycor() + 50 and ball.ycor() > paddle_b.ycor() - 50:
-        ball.dx *= -1
+        ball.dx *= -1.4
         os.system("afplay bounce.wav&")
     
